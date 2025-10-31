@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red_bloodlink"
+    tools:context=".BloodLinkRoleActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="SELECT YOUR ROLE"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19999999" />
+
+    <RelativeLayout
+        android:id="@+id/donneur_layout"
+        android:layout_width="350dp"
+        android:layout_height="130dp"
+        android:background="@drawable/view_white"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42">
+        
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circle_gray"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/blood"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:text="Je suis donneur"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/layout1"
+            android:layout_marginTop="30dp"/>
+        <TextView
+            android:id="@+id/stv1"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:text="Inscrivez-vous et sauvez des vies"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_below="@+id/tv1"
+            android:layout_toRightOf="@+id/layout1"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/medecin_layout"
+        android:layout_width="350dp"
+        android:layout_height="130dp"
+        android:background="@drawable/view_white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75">
+        <RelativeLayout
+            android:id="@+id/layout2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/circle_gray"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp">
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:text="Je suis medecin"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/layout2"
+            android:layout_marginTop="30dp"/>
+        <TextView
+            android:id="@+id/stv2"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textColor="@color/black"
+            android:text="Trouvez des donneurs compatibles en un clic"
+            android:textSize="15sp"
+            android:layout_below="@+id/tv2"
+            android:layout_toRightOf="@+id/layout2"/>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

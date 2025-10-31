@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BloodLink</string>
+    <string name="acceuil1">Faire un Don Peut Sauver Des Vies"</string>
+    <string name="acceuil2">Blablabla</string>
+    <string name="acceuil3">Blablabla</string>
+    <string name="profile">Create Profile</string>
+    <string name="groupe">Votre groupe sanguin</string>
+    <string name="sign">sign in</string>
+    <string name="nouvelle">Comment tu vas aujourd\'hui</string>
+    <string name="recherche">Rechercher un donneur</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFF9F9</color>
+    <color name="red1">#ED757C</color>
+    <color name="red2">#FFCFD0</color>
+    <color name="red_bloodlink">#FF0000</color>
+    <color name="red3">#E20E0E</color>
+    <color name="gray">#DBD8D8</color>
+    <color name="gray2">#E9ACAC</color>
+    <color name="gray4">#908888</color>
+    <color name="gray3">#DBD8D8</color>
+</resources>
