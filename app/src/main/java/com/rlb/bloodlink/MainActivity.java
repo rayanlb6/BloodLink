@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
             String sexe = cursor.getString(cursor.getColumnIndexOrThrow("sexe"));
             String groupe = cursor.getString(cursor.getColumnIndexOrThrow("groupe"));
             String rhesus = cursor.getString(cursor.getColumnIndexOrThrow("rhesus"));
-
+            android.util.Log.d("DB_CHECK", "role=" + role + ", name=" + name + ", email=" + email + ", tel=" + telephone +
+                    ", sexe=" + sexe + ", groupe=" + groupe + ", rhesus=" + rhesus);
             cursor.close();
 
             // Vérifie si toutes les infos sont présentes (non nulles et non vides)

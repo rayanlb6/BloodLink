@@ -95,7 +95,10 @@ public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
             if (rows > 0) {
                 Toast.makeText(this, "Groupe sanguin enregistré : " + selectedGroupe + selectedRhesus, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(BloodLinkGroupeSanguinActivity.this,BloodLinkMedecinActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                finishAffinity();
+
             } else {
                 Toast.makeText(this, "Erreur lors de l’enregistrement", Toast.LENGTH_SHORT).show();
             }
