@@ -40,9 +40,9 @@ public class BloodLinkRoleActivity extends AppCompatActivity {
                 long id = dbHelper.insertClientRole("donneur");
                 if (id != -1) {
                     Toast.makeText(BloodLinkRoleActivity.this, "Rôle 'donneur' enregistré !", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(BloodLinkRoleActivity.this, BloodLinkGroupeSanguinActivity.class);
+                    Intent intent=new Intent(BloodLinkRoleActivity.this, BloodLinkCreateProfileActivity.class);
                     startActivity(intent);
-                    finish();
+
                 } else {
                     Toast.makeText(BloodLinkRoleActivity.this, "Erreur lors de l’enregistrement", Toast.LENGTH_SHORT).show();
                 }
@@ -56,9 +56,9 @@ public class BloodLinkRoleActivity extends AppCompatActivity {
                 long id = dbHelper.insertClientRole("medecin");
                 if (id != -1) {
                     Toast.makeText(BloodLinkRoleActivity.this, "Rôle 'médecin' enregistré !", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(BloodLinkRoleActivity.this, BloodLinkGroupeSanguinActivity.class);
+                    Intent intent=new Intent(BloodLinkRoleActivity.this, BloodLinkCreateProfileActivity.class);
                     startActivity(intent);
-                    finish();
+
                 } else {
                     Toast.makeText(BloodLinkRoleActivity.this, "Erreur lors de l’enregistrement", Toast.LENGTH_SHORT).show();
                 }

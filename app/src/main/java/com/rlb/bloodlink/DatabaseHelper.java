@@ -74,7 +74,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public Cursor getLastProgress(){
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT "+COLUMN_NAME+", "+COLUMN_EMAIL+", "+COLUMN_TELEPHONE+", "+COLUMN_ROLE+", "+COLUMN_SEXE+", "+COLUMN_GROUPE+", "+COLUMN_RHESUS+" FROM "+TABLE_CLIENT+" ORDER BY " + COLUMN_ID+" DESC LIMIT 1",null);
-
+        return db.rawQuery("SELECT " + COLUMN_ID + ", "
+                + COLUMN_NAME + ", " + COLUMN_EMAIL + ", "
+                + COLUMN_TELEPHONE + ", " + COLUMN_ROLE + ", "
+                + COLUMN_SEXE + ", " + COLUMN_GROUPE + ", "
+                + COLUMN_RHESUS + " FROM " + TABLE_CLIENT
+                + " ORDER BY " + COLUMN_ID + " DESC LIMIT 1", null);
     }
+
 }

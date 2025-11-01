@@ -1,5 +1,6 @@
 package com.rlb.bloodlink;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -58,6 +59,8 @@ public class BloodLinkCreateProfileActivity extends AppCompatActivity {
                     int rows = dbHelper.updatePI(lastId, name, email, telephone, sexe);
                     if (rows > 0) {
                         Toast.makeText(BloodLinkCreateProfileActivity.this, "Profil enregistré avec succès !", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(BloodLinkCreateProfileActivity.this, BloodLinkGroupeSanguinActivity.class);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(BloodLinkCreateProfileActivity.this, "Erreur lors de l’enregistrement", Toast.LENGTH_SHORT).show();
                     }

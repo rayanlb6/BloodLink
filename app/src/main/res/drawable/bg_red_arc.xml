@@ -3,10 +3,10 @@
     android:width="360dp"
     android:height="200dp"
     android:viewportWidth="360"
-    android:viewportHeight="220">
+    android:viewportHeight="360">
 
     <path
         android:fillColor="@color/red_bloodlink"
-        android:pathData="M0,0 H360 V100 Q180,220 0,100 Z" />
+        android:pathData="M0,0 H360  Q180,480 0,0 Z" />
 
 </vector>
