@@ -1,6 +1,8 @@
 package com.rlb.bloodlink;
 
+import android.database.Cursor;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,16 @@ public class BloodLinkMedecinActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        DatabaseHelper db = new DatabaseHelper(this);
+        Cursor cursor = db.getLastProgress();
+
+        String nom = "Utilisateur";
+        if (cursor != null && cursor.moveToFirst()) {
+            nom = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+            cursor.close();
+        }
+
+        TextView tv1 = findViewById(R.id.tv1);
+        tv1.setText("Hello " + nom);
     }
 }
