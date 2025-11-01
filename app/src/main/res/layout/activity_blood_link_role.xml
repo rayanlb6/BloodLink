@@ -25,7 +25,7 @@
         android:id="@+id/donneur_layout"
         android:layout_width="350dp"
         android:layout_height="130dp"
-        android:background="@drawable/view_white"
+        android:background="@drawable/view_white2"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,7 +77,7 @@
         android:id="@+id/medecin_layout"
         android:layout_width="350dp"
         android:layout_height="130dp"
-        android:background="@drawable/view_white"
+        android:background="@drawable/view_white2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,6 +94,12 @@
             android:layout_marginBottom="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="15dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/doctor"
+                android:layout_centerInParent="true"
+                />
         </RelativeLayout>
 
         <TextView

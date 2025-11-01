@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
 
     private TextView tv2, tv3, tv4, tv5, tv6, tv7, tv8, btn1;
+    ImageView fleches;
     private String selectedGroupe = "";
     private String selectedRhesus = "";
     private long lastClientId = -1;
@@ -101,6 +103,13 @@ public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
 
             } else {
                 Toast.makeText(this, "Erreur lors de l’enregistrement", Toast.LENGTH_SHORT).show();
+            }
+        });
+        fleches = findViewById(R.id.fleche);
+        fleches.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                finish();
             }
         });
     }

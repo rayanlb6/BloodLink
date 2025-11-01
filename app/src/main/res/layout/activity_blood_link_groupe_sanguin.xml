@@ -8,6 +8,7 @@
     android:background="@color/white"
     tools:context=".BloodLinkGroupeSanguinActivity">
     <ImageView
+        android:id="@+id/fleche"
         android:layout_width="75dp"
         android:layout_height="40dp"
         android:src="@drawable/arrow_black"

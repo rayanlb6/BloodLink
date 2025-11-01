@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +20,11 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class BloodLinkCreateProfileActivity extends AppCompatActivity {
 
-    TextInputEditText etName, etEmail, etTelephone, etSexe;
+    TextInputEditText etName, etEmail, etTelephone;
+    AutoCompleteTextView etSexe;
+    String[] sexes = new String[]{"Masculin", "Féminin"};
     TextView btnSignIn;
+    ImageView fleches;
     DatabaseHelper dbHelper;
 
     @Override
@@ -38,6 +44,25 @@ public class BloodLinkCreateProfileActivity extends AppCompatActivity {
         etTelephone = findViewById(R.id.etTelephone);
         etSexe = findViewById(R.id.etSexe);
         btnSignIn = findViewById(R.id.btn1);
+        fleches = (ImageView) findViewById(R.id.fleche_retour);
+        fleches.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                finish();
+            }
+        });
+        ArrayAdapter<String> adapterSexe = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_dropdown_item_1line,
+                sexes
+        );
+
+// Lier l’adaptateur à ton AutoCompleteTextView
+        etSexe.setAdapter(adapterSexe);
+
+// Ouvrir la liste automatiquement au clic
+        etSexe.setOnClickListener(v -> etSexe.showDropDown());
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

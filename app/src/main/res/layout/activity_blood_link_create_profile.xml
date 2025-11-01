@@ -37,6 +37,7 @@
 
     </RelativeLayout>
 <ImageView
+    android:id="@+id/fleche_retour"
     android:layout_width="75dp"
     android:layout_height="40dp"
     android:layout_marginTop="30dp"
@@ -216,32 +217,38 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input4"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sexe"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColorHint="@color/gray4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeWidthFocused="3dp"
+        app:boxStrokeColor="@color/gray4"
+        app:endIconMode="dropdown_menu"
+        app:layout_constraintTop_toBottomOf="@+id/tv4"
+        app:layout_constraintBottom_toTopOf="@+id/btn1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/etSexe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sexe"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:textColorHint="@color/gray4"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="20dp"
-            app:boxBackgroundMode="outline"
-            app:boxStrokeWidthFocused="3dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv4"
-            app:layout_constraintBottom_toTopOf="@+id/btn1"
-            app:boxStrokeColor="@color/gray4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSexe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:textColor="@color/black"/>
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:inputType="none"
+            android:focusable="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <TextView
+    <TextView
             android:id="@+id/btn1"
             android:layout_width="250dp"
             android:layout_height="50dp"
