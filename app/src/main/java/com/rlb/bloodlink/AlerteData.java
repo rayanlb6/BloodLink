@@ -13,5 +13,35 @@ public class AlerteData {
         this.accept=accept;
     }
 
+    public String getIdAlert() {
+        return idAlert;
+    }
 
+    public void setIdAlert(String idAlert) {
+        this.idAlert = idAlert;
+    }
+
+    public int getIdMedecin() {
+        return idMedecin;
+    }
+
+    public void setIdMedecin(int idMedecin) {
+        this.idMedecin = idMedecin;
+    }
+
+    public int getIdDonneur() {
+        return idDonneur;
+    }
+
+    public void setIdDonneur(int idDonneur) {
+        this.idDonneur = idDonneur;
+    }
+
+    public boolean isAccept() {
+        return accept;
+    }
+
+    public void setAccept(boolean accept) {
+        this.accept = accept;
+    }
 }
