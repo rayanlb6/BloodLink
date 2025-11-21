@@ -8,4 +8,23 @@
     <string name="sign">sign in</string>
     <string name="nouvelle">Comment tu vas aujourd\'hui</string>
     <string name="recherche">Rechercher un donneur</string>
+    <string name="Ap">A+</string>
+    <string name="Am">A-</string>
+    <string name="Bp">B+</string>
+    <string name="Bm">B-</string>
+    <string name="Op">O+</string>
+    <string name="Om">O-</string>
+    <string name="ABp">AB+</string>
+    <string name="ABm">AB-</string>
+    <string name="lancer_alerte"> + lancer une alerte</string>
+    <string name="gs">Selectionner un groupe sanguin</string>
+    <string name="gs2">Groupe sanguin</string>
+    <string name="zg">Selectionner une zone Geographique</string>
+    <string name="list_al">Liste des Alertes</string>
+    <string name="profile2">Profil</string>
+    <string name="dispo">Disponible pour un don</string>
+    <string name="recep">Recevez des notifications</string>
+    <string name="accept">J\'accepte</string>
+    <string name="refuse">Je refuse</string>
+
 </resources>

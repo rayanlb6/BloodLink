@@ -15,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper db;
+    final String DONNEUR="donneur";
+    final String MEDECIN="medecin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,31 +33,32 @@ public class MainActivity extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             Intent intent;
 
-            if (isUserFullyRegistered()) {
-                // L'utilisateur a tout rempli → aller à la page médecin
-                intent = new Intent(MainActivity.this, BloodLinkMedecinActivity.class);
+            String role = getUserRole();
+            if ("medecin".equals(role)) {
+                intent=new Intent(this, BloodLinkMedecinActivity.class);
+            } else if ("donneur".equals(role)) {
+                intent=new Intent(this, BloodLinkDonneurActivity.class);
             } else {
-                // L'utilisateur n’a pas encore terminé son inscription → accueil
-                intent = new Intent(MainActivity.this, BloodLinkAcceuilActivity.class);
+                intent=new Intent(this, BloodLinkAcceuilActivity.class);
             }
+
 
             startActivity(intent);
             finish();
         }, 3000);
     }
-
-    private boolean isUserFullyRegistered() {
-        Cursor cursor = db.getLastProgress();
+    private boolean isUserFullyRegisteredForMedecin() {
+        Cursor cursor = db.getLastIdCursor();
         if (cursor != null && cursor.moveToFirst()) {
             String role = cursor.getString(cursor.getColumnIndexOrThrow("role"));
             String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
             String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
             String telephone = cursor.getString(cursor.getColumnIndexOrThrow("telephone"));
+            String adresse = cursor.getString(cursor.getColumnIndexOrThrow("adresse"));
             String sexe = cursor.getString(cursor.getColumnIndexOrThrow("sexe"));
-            String groupe = cursor.getString(cursor.getColumnIndexOrThrow("groupe"));
-            String rhesus = cursor.getString(cursor.getColumnIndexOrThrow("rhesus"));
-            android.util.Log.d("DB_CHECK", "role=" + role + ", name=" + name + ", email=" + email + ", tel=" + telephone +
-                    ", sexe=" + sexe + ", groupe=" + groupe + ", rhesus=" + rhesus);
+
+            android.util.Log.d("DB_CHECK", "role=" + role + ", name=" + name + ", email=" + email + ", tel=" + telephone + ", adresse=" + adresse +
+                    ", sexe=" + sexe);
             cursor.close();
 
             // Vérifie si toutes les infos sont présentes (non nulles et non vides)
@@ -63,14 +66,52 @@ public class MainActivity extends AppCompatActivity {
                     && isNotEmpty(name)
                     && isNotEmpty(email)
                     && isNotEmpty(telephone)
+                    && isNotEmpty(adresse)
                     && isNotEmpty(sexe)
-                    && isNotEmpty(groupe)
-                    && isNotEmpty(rhesus);
+                    && role.equals(MEDECIN);
+
         }
 
         return false;
     }
 
+    private boolean isUserFullyRegisteredForDonneur() {
+        Cursor cursor = db.getLastIdCursor();
+        if (cursor != null && cursor.moveToFirst()) {
+            String role = cursor.getString(cursor.getColumnIndexOrThrow("role"));
+            String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+            String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
+            String telephone = cursor.getString(cursor.getColumnIndexOrThrow("telephone"));
+            String adresse = cursor.getString(cursor.getColumnIndexOrThrow("adresse"));
+            String sexe = cursor.getString(cursor.getColumnIndexOrThrow("sexe"));
+            String groupe = cursor.getString(cursor.getColumnIndexOrThrow("groupe"));
+
+            android.util.Log.d("DB_CHECK", "role=" + role + ", name=" + name + ", email=" + email + ", tel=" + telephone + ", adresse=" + adresse +
+                    ", sexe=" + sexe + ", groupe=" + groupe);
+            cursor.close();
+
+            // Vérifie si toutes les infos sont présentes (non nulles et non vides)
+            return isNotEmpty(role)
+                    && isNotEmpty(name)
+                    && isNotEmpty(email)
+                    && isNotEmpty(telephone)
+                    && isNotEmpty(adresse)
+                    && isNotEmpty(sexe)
+                    && isNotEmpty(groupe)
+                    && role.equals(DONNEUR);
+        }
+
+        return false;
+    }
+    private String getUserRole() {
+        Cursor cursor = db.getLastIdCursor();
+        if (cursor != null && cursor.moveToFirst()) {
+            String role = cursor.getString(cursor.getColumnIndexOrThrow("role"));
+            cursor.close();
+            return role;
+        }
+        return null;
+    }
     private boolean isNotEmpty(String value) {
         return value != null && !value.trim().isEmpty();
     }

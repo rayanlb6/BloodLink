@@ -7,58 +7,83 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".BloodLinkMedecinActivity">
-    <ImageView
-        android:id="@+id/img1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/user"
-        android:layout_margin="19dp"
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:layout_margin="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:src="@drawable/user"
+            android:layout_weight="1"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:weightSum="2"
+            >
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/nouvelle"
+                android:textColor="@color/red_bloodlink"
+                android:textSize="14sp"
+                android:textStyle="bold"
 
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="200dp"
-        android:layout_height="25dp"
-        android:layout_margin="5dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/img2"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toEndOf="@+id/img1"
-        app:layout_constraintTop_toTopOf="@+id/img1" />
+            />
 
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="270dp"
-        android:layout_height="35dp"
-        android:text="@string/nouvelle"
-        android:textColor="@color/red_bloodlink"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/img2"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="@+id/tv1"
-        app:layout_constraintTop_toBottomOf="@+id/tv1"/>
-    <ImageView
-        android:id="@+id/img2"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/notification"
-        android:layout_margin="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/notification"
+                    />
+            </LinearLayout>
+
+
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/btn_gray1"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv2"
+        app:layout_constraintTop_toBottomOf="@+id/ll1"
 
 
         >
@@ -75,7 +100,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             app:boxBackgroundMode="none"
             android:layout_toEndOf="@+id/img3"
             android:layout_toStartOf="@+id/img4"
@@ -113,33 +138,731 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     </RelativeLayout>
-
+<LinearLayout
+    android:id="@+id/ll2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="15dp"
+    app:layout_constraintTop_toBottomOf="@+id/layout1"
+    android:weightSum="2">
     <TextView
-        android:id="@+id/tv3"
-        android:layout_width="170dp"
+        android:id="@+id/tvDonneur"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:text="Donneurs"
         android:textColor="@color/white"
         android:textSize="17sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="5dp"
         android:background="@drawable/btn_red2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tv4"
-        app:layout_constraintTop_toBottomOf="@+id/layout1"/>
+      />
+
     <TextView
-        android:id="@+id/tv4"
-        android:layout_width="170dp"
+        android:id="@+id/tvMessage"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:text="Vos messages"
+        android:text="Alertes"
         android:textColor="@color/gray4"
         android:textSize="17sp"
         android:textStyle="bold"
         android:gravity="center"
         android:background="@drawable/btn_gray2"
-        app:layout_constraintStart_toEndOf="@+id/tv3"
+        android:layout_marginHorizontal="5dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv3"/>
+        android:layout_margin="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/ll2"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        android:visibility="gone"
+        >
+        <TextView
+            android:id="@+id/Ap"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/Ap"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red3"
+            android:layout_marginHorizontal="2dp"
+            />
+        <TextView
+            android:id="@+id/Am"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/Am"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red5"
+            android:layout_marginHorizontal="2dp"
+            />
+        <TextView
+            android:id="@+id/Bp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/Bp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red5"
+            android:layout_marginHorizontal="2dp"
+            />
+        <TextView
+            android:id="@+id/Bm"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:text="@string/Bm"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red5"
+            android:layout_marginHorizontal="2dp"
+            />
+        <TextView
+            android:id="@+id/ABp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/ABp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red5"
+            />
+        <TextView
+            android:id="@+id/ABm"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/ABm"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red5"
+            android:layout_marginHorizontal="2dp"
+            />
+        <TextView
+            android:id="@+id/Op"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/Op"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red5"
+            android:layout_toRightOf="@+id/ABm"
+            android:layout_marginHorizontal="2dp"
+            />
+        <TextView
+            android:id="@+id/Om"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/Om"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/btn_red5"
+            android:layout_toRightOf="@+id/Op"
+            android:layout_marginHorizontal="2dp"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:fillViewport="true"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll3">
+        <LinearLayout
+            android:id="@+id/scrollv1_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/template"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="8"
+                android:background="@drawable/btn_red4"
+                >
+                <ImageView
+                    android:id="@+id/user"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/utilisateur"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="0dp"
+                       android:layout_weight="1"
+                       android:layout_marginTop="10dp"
+                       android:orientation="horizontal"
+                       android:weightSum="8">
+                       <TextView
+                           android:id="@+id/tvNom"
+                           android:layout_width="0dp"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="7"
+                           android:text="EDIMA Christian"
+                           android:gravity="center_vertical"
+                           android:textSize="20sp"
+                           android:textStyle="bold"/>
+                       <TextView
+                           android:id="@+id/tvGroupe"
+                           android:layout_width="0dp"
+                           android:layout_height="match_parent"
+                           android:layout_weight="1"
+                           android:text="A+"
+                           android:textColor="@color/red_bloodlink"
+                           android:textStyle="bold"
+                           android:textSize="20sp"/>
+                   </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvLieu"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Yaounde simbock"
+                        android:textSize="18sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+                        <TextView
+                            android:id="@+id/tvDisponibilite"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_green"
+                            android:gravity="center"
+                            android:text="Disponible"
+                            android:layout_marginEnd="15dp"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"/>
+                        <TextView
+                            android:id="@+id/btnAlerter"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Alerter"
+                            android:gravity="center"
+                            android:textSize="20sp"
+
+                            android:background="@drawable/btn_red2"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+<LinearLayout
+    android:id="@+id/ll4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ll2"
+    android:orientation="horizontal"
+    android:layout_margin="15dp"
+    android:visibility="gone"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/tvla"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/lancer_alerte"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_red3"
+        android:textSize="26sp"
+        android:gravity="center"
+        android:layout_marginHorizontal="20dp"
+        />
+</LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:fillViewport="true"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll4">
+        <LinearLayout
+            android:id="@+id/template2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:background="@drawable/btn_red4"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+                        <TextView
+                            android:id="@+id/tvNom2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="EDIMA Christian"
+                            android:gravity="center_vertical"
+                            android:textSize="20sp"
+                            android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvLieu2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Yaounde simbock"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/tvGroupe2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="A+"
+                        android:textColor="@color/red_bloodlink"
+                        android:textStyle="bold"
+                        android:textSize="24sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="2"
+                    android:layout_margin="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvStatu"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="En attente"
+                        android:background="@drawable/btn_red2"
+                        android:textSize="20sp"
+                        android:textAlignment="center"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/tvAction"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_red2"
+                        android:layout_margin="10dp"
+                        android:text="Supprimer"
+                        android:textSize="20sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/ll5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ll2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="15dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="8">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/arrow_black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:text="@string/gs"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:id="@+id/ll6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_margin="12dp"
+    app:layout_constraintTop_toBottomOf="@+id/ll5"
+    android:orientation="horizontal"
+    android:weightSum="8"
+    android:visibility="gone"
+    >
+    <TextView
+        android:id="@+id/Ap2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/Ap"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        android:layout_marginHorizontal="2dp"
+        />
+    <TextView
+        android:id="@+id/Am2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/Am"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        android:layout_marginHorizontal="2dp"
+        />
+    <TextView
+        android:id="@+id/Bp2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/Bp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        android:layout_marginHorizontal="2dp"
+        />
+    <TextView
+        android:id="@+id/Bm2"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="40dp"
+        android:text="@string/Bm"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        android:layout_marginHorizontal="2dp"
+        />
+    <TextView
+        android:id="@+id/ABp2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/ABp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        />
+    <TextView
+        android:id="@+id/ABm2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/ABm"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        android:layout_marginHorizontal="2dp"
+        />
+    <TextView
+        android:id="@+id/Op2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/Op"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        android:layout_toRightOf="@+id/ABm"
+        android:layout_marginHorizontal="2dp"
+        />
+    <TextView
+        android:id="@+id/Om2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="@string/Om"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_red3"
+        android:layout_toRightOf="@+id/Op"
+        android:layout_marginHorizontal="2dp"
+        />
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/ll6"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/zg"
+            android:layout_weight="1"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/ll7"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/tvCible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entrez la zone cible"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="cible"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColorHint="@color/gray4"
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/gray4"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/zone"
+                android:textSize="15sp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/black"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvTired"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Valide"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:background="@drawable/btn_red2"
+            android:clickable="true"
+            android:focusable="true"
+            />
+
+
+
+        <TextView
+            android:id="@+id/longlat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            />
+
+
+        <TextView
+            android:id="@+id/Dist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distance"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="distance"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColorHint="@color/gray4"
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/gray4"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/rayon"
+                android:textSize="15sp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/black"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvValide"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Envoyer"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/btn_red2"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="test"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            />
+
+    </LinearLayout>
+  <!--  <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:visibility="gone"
+        android:layout_margin="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll7"/> -->
+
+    <LinearLayout
+    android:id="@+id/ll8"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:layout_marginBottom="15dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:src="@drawable/accueil"/>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:src="@drawable/utilisateur"/>
+
+
+
+</LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

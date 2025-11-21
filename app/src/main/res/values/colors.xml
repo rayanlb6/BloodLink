@@ -6,8 +6,11 @@
     <color name="red2">#FFCFD0</color>
     <color name="red_bloodlink">#FF0000</color>
     <color name="red3">#E20E0E</color>
+    <color name="red4">#7C3030</color>
+    <color name="red5">#DE5E5E</color>
     <color name="gray">#DBD8D8</color>
     <color name="gray2">#EBD9EB</color>
     <color name="gray4">#6F6B6B</color>
     <color name="gray3">#CCCACA</color>
+    <color name="green">#1B9520</color>
 </resources>

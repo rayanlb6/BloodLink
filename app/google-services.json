@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "914669668674",
+    "project_id": "bloodlink-3327e",
+    "storage_bucket": "bloodlink-3327e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914669668674:android:3e2ce2a190b00ad688e0db",
+        "android_client_info": {
+          "package_name": "com.bloodlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914669668674-k6h4munejgo9ocnsmg6v4k65ai5h91n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxBy34WZw_OstZgzHMs54SMxRXF4gCpx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914669668674-k6h4munejgo9ocnsmg6v4k65ai5h91n6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914669668674:android:619ed55724eca31f88e0db",
+        "android_client_info": {
+          "package_name": "com.rlb.bloodlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914669668674-k6h4munejgo9ocnsmg6v4k65ai5h91n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxBy34WZw_OstZgzHMs54SMxRXF4gCpx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914669668674-k6h4munejgo9ocnsmg6v4k65ai5h91n6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

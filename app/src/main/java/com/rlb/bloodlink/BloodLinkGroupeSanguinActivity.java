@@ -14,15 +14,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
 
     private TextView tv2, tv3, tv4, tv5, tv6, tv7, tv8, btn1;
-    ImageView fleches;
+    private ImageView fleches;
     private String selectedGroupe = "";
     private String selectedRhesus = "";
+
+    private String groupe = "";
+
     private long lastClientId = -1;
 
     private DatabaseHelper db;
+    private DatabaseReference firebaseRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +42,14 @@ public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
             return insets;
         });
 
-
         db = new DatabaseHelper(this);
+        firebaseRef = FirebaseDatabase.getInstance().getReference("clients");
 
-        // --- Récupération du dernier utilisateur ---
-        Cursor cursor = db.getLastProgress();
+        // --- Récupération du dernier utilisateur avec ID réel ---
+        Cursor cursor = db.getLastIdCursor();
         if (cursor != null && cursor.moveToFirst()) {
-            // On récupère son id
-            lastClientId = cursor.getCount(); // si tu veux plus précis, tu peux ajouter COLUMN_ID dans le SELECT
+            lastClientId = cursor.getLong(cursor.getColumnIndexOrThrow("id"));
+            cursor.close();
         }
 
         // --- Liaisons des vues ---
@@ -53,6 +61,9 @@ public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
         tv7 = findViewById(R.id.tv7);
         tv8 = findViewById(R.id.tv8);
         btn1 = findViewById(R.id.btn1);
+        fleches = findViewById(R.id.fleche);
+
+        fleches.setOnClickListener(v -> finish());
 
         // --- Gestion du clic sur groupe sanguin ---
         View.OnClickListener groupeListener = v -> {
@@ -62,7 +73,6 @@ public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
             clicked.setTextColor(getColor(R.color.white));
             selectedGroupe = clicked.getText().toString();
         };
-
         tv2.setOnClickListener(groupeListener);
         tv3.setOnClickListener(groupeListener);
         tv4.setOnClickListener(groupeListener);
@@ -77,7 +87,6 @@ public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
             clicked.setTextColor(getColor(R.color.white));
             selectedRhesus = clicked.getText().toString();
         };
-
         tv7.setOnClickListener(rhesusListener);
         tv8.setOnClickListener(rhesusListener);
 
@@ -92,24 +101,22 @@ public class BloodLinkGroupeSanguinActivity extends AppCompatActivity {
                 Toast.makeText(this, "Aucun utilisateur trouvé dans la base", Toast.LENGTH_SHORT).show();
                 return;
             }
+            groupe=selectedGroupe+selectedRhesus;
+            // 🔹 Mise à jour SQLite
+            int rows = db.updateGroupeRhesus(lastClientId, groupe);
 
-            int rows = db.updateGroupeRhesus(lastClientId, selectedGroupe, selectedRhesus);
             if (rows > 0) {
+                // 🔹 Mise à jour Firebase
+                firebaseRef.child(String.valueOf(lastClientId)).child("groupe").setValue(groupe);
+
                 Toast.makeText(this, "Groupe sanguin enregistré : " + selectedGroupe + selectedRhesus, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(BloodLinkGroupeSanguinActivity.this,BloodLinkMedecinActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(BloodLinkGroupeSanguinActivity.this, BloodLinkDonneurActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                finishAffinity();
+                finish();
 
             } else {
                 Toast.makeText(this, "Erreur lors de l’enregistrement", Toast.LENGTH_SHORT).show();
-            }
-        });
-        fleches = findViewById(R.id.fleche);
-        fleches.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                finish();
             }
         });
     }
